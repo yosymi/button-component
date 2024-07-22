@@ -1,0 +1,22 @@
+.button {
+  display: block;
+  border: none;
+  border-radius: 5px;
+}
+
+.button_black {
+  background: black;
+  color: white;
+}
+
+.button_white_outline {
+  background: white;
+  border: 1px solid black;
+  color: black;
+}
+
+.button_white {
+  background: white;
+  border: none;
+  color: black;
+}
