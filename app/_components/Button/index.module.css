@@ -2,11 +2,21 @@
   display: block;
   border: none;
   border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.button:focus {
+  background-color: red;
 }
 
 .button_black {
   background: black;
   color: white;
+}
+.button_black:hover {
+  background: white;
+  color: black;
 }
 
 .button_white_outline {
@@ -14,9 +24,17 @@
   border: 1px solid black;
   color: black;
 }
+.button_white_outline:hover {
+  background: black;
+  color: white;
+}
 
 .button_white {
   background: white;
   border: none;
   color: black;
+}
+.button_white:hover {
+  background: black;
+  color: white;
 }
