@@ -1,4 +1,8 @@
 .button_size {
-  width: 70px;
+  width: 100px;
   height: 50px;
+}
+
+.image {
+  margin: 5px;
 }

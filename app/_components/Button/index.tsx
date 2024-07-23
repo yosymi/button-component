@@ -24,7 +24,7 @@ export function BlackButton({ children }: Props) {
       onClick={load}
       className={`${styles.button} ${styles.button_black}`}
     >
-      {loading ? loadingLabel : children}
+      <div className={styles.flex}>{loading ? loadingLabel : children}</div>
     </button>
   );
 }
@@ -44,7 +44,7 @@ export function WhiteButtonOutline({ children }: Props) {
       onClick={load}
       className={`${styles.button} ${styles.button_white_outline}`}
     >
-      {loading ? loadingLabel : children}
+      <div className={styles.flex}>{loading ? loadingLabel : children}</div>
     </button>
   );
 }
@@ -64,7 +64,7 @@ export function WhiteButton({ children }: Props) {
       onClick={load}
       className={`${styles.button} ${styles.button_white}`}
     >
-      {loading ? loadingLabel : children}
+      <div className={styles.flex}>{loading ? loadingLabel : children}</div>
     </button>
   );
 }
