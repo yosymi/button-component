@@ -23,9 +23,10 @@ export default function Home() {
     <div>
       <div className={styles.button_size}>
         <BlackButton
-          onClick={hello}
+          type=""
           href="https://www.google.com/"
-          target="_blank"
+          // target="_blank"
+          onClick={hello}
         >
           <Image
             className={styles.image}
@@ -40,9 +41,10 @@ export default function Home() {
       <br />
       <div className={styles.button_size}>
         <WhiteButtonOutline
-          onClick={hello}
+          type=""
           href="https://www.google.com/"
           target="_self"
+          onClick={hello}
         >
           編集
           <Image
@@ -57,9 +59,10 @@ export default function Home() {
       <br />
       <div className={styles.button_size}>
         <WhiteButton
-          onClick={hello}
+          type=""
           href="https://www.google.com/"
           target="_self"
+          onClick={hello}
         >
           <Image
             className={styles.image}
@@ -69,6 +72,13 @@ export default function Home() {
             height={10}
           />
           編集
+          <Image
+            className={styles.image}
+            src="/edit_icon_black.png"
+            alt=""
+            width={10}
+            height={10}
+          />
         </WhiteButton>
       </div>
     </div>
