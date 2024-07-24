@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./page.module.css";
 import Image from "next/image";
 import {
@@ -6,11 +8,22 @@ import {
   WhiteButton,
 } from "@/app/_components/Button";
 
+// ボタンコンポーネントで実行する関数（3秒待つ）
+const hello = () => {
+  return new Promise<void>((resolve, reject) => {
+    console.log("sleeping 3 seconds");
+    setTimeout(() => {
+      console.log("After 3 seconds");
+      resolve();
+    }, 3000);
+  });
+};
+
 export default function Home() {
   return (
     <div>
       <div className={styles.button_size}>
-        <BlackButton>
+        <BlackButton onClick={hello}>
           <Image
             className={styles.image}
             src="/edit_icon_white.png"
@@ -23,7 +36,7 @@ export default function Home() {
       </div>
       <br />
       <div className={styles.button_size}>
-        <WhiteButtonOutline>
+        <WhiteButtonOutline onClick={hello}>
           編集
           <Image
             className={styles.image}
@@ -36,7 +49,7 @@ export default function Home() {
       </div>
       <br />
       <div className={styles.button_size}>
-        <WhiteButton>
+        <WhiteButton onClick={hello}>
           <Image
             className={styles.image}
             src="/edit_icon_black.png"

@@ -1,22 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Component } from "react";
 import styles from "./index.module.css";
 
 type Props = {
+  onClick: () => Promise<void>;
   children: React.ReactNode;
 };
 
-const loadingLabel = "Loading";
+const loadingLabel = "Loading...";
 
 // 黒いボタンコンポーネント
-export function BlackButton({ children }: Props) {
+export const BlackButton = ({ onClick, children }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const load = () => {
+  const load = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    await onClick();
+    setLoading(false);
   };
 
   return (
@@ -27,16 +27,15 @@ export function BlackButton({ children }: Props) {
       <div className={styles.flex}>{loading ? loadingLabel : children}</div>
     </button>
   );
-}
+};
 
 // 白いボタンコンポーネント（枠線あり）
-export function WhiteButtonOutline({ children }: Props) {
+export function WhiteButtonOutline({ onClick, children }: Props) {
   const [loading, setLoading] = useState<boolean>(false);
-  const load = () => {
+  const load = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    await onClick();
+    setLoading(false);
   };
 
   return (
@@ -50,13 +49,12 @@ export function WhiteButtonOutline({ children }: Props) {
 }
 
 // 白いボタンコンポーネント（枠線なし）
-export function WhiteButton({ children }: Props) {
+export function WhiteButton({ onClick, children }: Props) {
   const [loading, setLoading] = useState<boolean>(false);
-  const load = () => {
+  const load = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    await onClick();
+    setLoading(false);
   };
 
   return (
