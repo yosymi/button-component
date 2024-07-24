@@ -8,12 +8,11 @@ import {
   WhiteButton,
 } from "@/app/_components/Button";
 
-// ボタンコンポーネントで実行する関数（3秒待つ）
+// ボタンクリック時に発火する外部関数（3秒待つ）
 const hello = () => {
   return new Promise<void>((resolve, reject) => {
     console.log("sleeping 3 seconds");
     setTimeout(() => {
-      console.log("After 3 seconds");
       resolve();
     }, 3000);
   });
@@ -23,7 +22,11 @@ export default function Home() {
   return (
     <div>
       <div className={styles.button_size}>
-        <BlackButton onClick={hello}>
+        <BlackButton
+          onClick={hello}
+          href="https://www.google.com/"
+          target="_blank"
+        >
           <Image
             className={styles.image}
             src="/edit_icon_white.png"
@@ -36,7 +39,11 @@ export default function Home() {
       </div>
       <br />
       <div className={styles.button_size}>
-        <WhiteButtonOutline onClick={hello}>
+        <WhiteButtonOutline
+          onClick={hello}
+          href="https://www.google.com/"
+          target="_self"
+        >
           編集
           <Image
             className={styles.image}
@@ -49,7 +56,11 @@ export default function Home() {
       </div>
       <br />
       <div className={styles.button_size}>
-        <WhiteButton onClick={hello}>
+        <WhiteButton
+          onClick={hello}
+          href="https://www.google.com/"
+          target="_self"
+        >
           <Image
             className={styles.image}
             src="/edit_icon_black.png"
