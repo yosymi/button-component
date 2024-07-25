@@ -8,6 +8,7 @@ type Props = {
   type?: string;
   href?: string;
   target?: string;
+  buttonStyles: any;
   onClick?: () => Promise<void>;
   children?: React.ReactNode;
 };
@@ -16,11 +17,11 @@ type Props = {
 const loadingLabel = "Loading...";
 let load: any;
 
-// 黒いボタンコンポーネント
-export const BlackButton = ({
+export const Button = ({
   type = "",
   href = "",
   target = "_blank",
+  buttonStyles,
   onClick,
   children,
 }: Props) => {
@@ -49,7 +50,7 @@ export const BlackButton = ({
       <Link href={href} target={target}>
         <button
           onClick={load}
-          className={`${styles.button} ${styles.button_black}`}
+          className={`${styles.button} ${buttonStyles.button}`}
         >
           <div className={styles.flex}>{loading ? loadingLabel : children}</div>
         </button>
@@ -61,108 +62,10 @@ export const BlackButton = ({
     return (
       <button
         onClick={load}
-        className={`${styles.button} ${styles.button_black}`}
+        className={`${styles.button} ${buttonStyles.button}`}
       >
         <div className={styles.flex}>{loading ? loadingLabel : children}</div>
       </button>
     );
   }
 };
-
-// 白いボタンコンポーネント（枠線あり）
-export function WhiteButtonOutline({
-  type = "",
-  href = "",
-  target = "_blank",
-  onClick,
-  children,
-}: Props) {
-  const [loading, setLoading] = useState<boolean>(false);
-
-  // 関数を指定する場合、実行中のボタンラベルはローディング中とする
-  if (onClick !== undefined) {
-    load = async () => {
-      setLoading(true);
-      await onClick();
-      setLoading(false);
-    };
-  }
-
-  // ボタンのtypeをsubmitに指定してフォームボタンとして使用する場合
-  if (type === "submit") {
-    return (
-      <button type="submit" className={styles.button}>
-        {children}
-      </button>
-    );
-  } else if (href) {
-    return (
-      <Link href={href} target={target}>
-        <button
-          onClick={load}
-          className={`${styles.button} ${styles.button_white_outline}`}
-        >
-          <div className={styles.flex}>{loading ? loadingLabel : children}</div>
-        </button>
-      </Link>
-    );
-  } else {
-    return (
-      <button
-        onClick={load}
-        className={`${styles.button} ${styles.button_white_outline}`}
-      >
-        <div className={styles.flex}>{loading ? loadingLabel : children}</div>
-      </button>
-    );
-  }
-}
-
-// 白いボタンコンポーネント（枠線なし）
-export function WhiteButton({
-  type = "",
-  href = "",
-  target = "_blank",
-  onClick,
-  children,
-}: Props) {
-  const [loading, setLoading] = useState<boolean>(false);
-
-  // 関数を指定する場合、実行中のボタンラベルはローディング中とする
-  if (onClick !== undefined) {
-    load = async () => {
-      setLoading(true);
-      await onClick();
-      setLoading(false);
-    };
-  }
-
-  // ボタンのtypeをsubmitに指定してフォームボタンとして使用する場合
-  if (type === "submit") {
-    return (
-      <button type="submit" className={styles.button}>
-        {children}
-      </button>
-    );
-  } else if (href) {
-    return (
-      <Link href={href} target={target}>
-        <button
-          onClick={load}
-          className={`${styles.button} ${styles.button_white}`}
-        >
-          <div className={styles.flex}>{loading ? loadingLabel : children}</div>
-        </button>
-      </Link>
-    );
-  } else {
-    return (
-      <button
-        onClick={load}
-        className={`${styles.button} ${styles.button_white}`}
-      >
-        <div className={styles.flex}>{loading ? loadingLabel : children}</div>
-      </button>
-    );
-  }
-}

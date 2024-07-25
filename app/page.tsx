@@ -2,11 +2,9 @@
 
 import styles from "./page.module.css";
 import Image from "next/image";
-import {
-  BlackButton,
-  WhiteButtonOutline,
-  WhiteButton,
-} from "@/app/_components/Button";
+import { BlackButton } from "@/app/_components/Button/BlackButton";
+import { WhiteButtonOutline } from "@/app/_components/Button/WhiteButtonOutline";
+import { WhiteButton } from "@/app/_components/Button/WhiteButton";
 
 // ボタンクリック時に発火する外部関数（3秒待つ）
 const hello = () => {
@@ -25,7 +23,7 @@ export default function Home() {
         <BlackButton
           type=""
           href="https://www.google.com/"
-          // target="_blank"
+          target="_blank"
           onClick={hello}
         >
           <Image
