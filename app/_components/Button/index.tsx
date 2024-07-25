@@ -22,7 +22,7 @@ export const Button = ({
   href = "",
   target = "_blank",
   buttonStyles,
-  onClick,
+  onClick = undefined,
   children,
 }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -34,6 +34,8 @@ export const Button = ({
       await onClick();
       setLoading(false);
     };
+  } else {
+    load = undefined;
   }
 
   // ボタンのtypeをsubmitに指定してフォームボタンとして使用する場合
