@@ -40,7 +40,11 @@ export const Button = ({
 
   // ボタンのtypeをsubmitに指定してフォームボタンとして使用する場合
   if (type === "submit") {
-    return <input type={type} value={children} className={styles.button} />;
+    return (
+      <button type={type} className={styles.button}>
+        {children}
+      </button>
+    );
   }
   // URLを指定してリンクボタンとして使用する場合
   else if (href) {
