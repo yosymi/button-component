@@ -8,7 +8,7 @@ type Props = {
   type?: string;
   href?: string;
   target?: string;
-  buttonStyles: any;
+  buttonStyles?: any;
   onClick?: () => Promise<void>;
   children?: React.ReactNode;
 };
@@ -40,11 +40,7 @@ export const Button = ({
 
   // ボタンのtypeをsubmitに指定してフォームボタンとして使用する場合
   if (type === "submit") {
-    return (
-      <button type="submit" className={styles.button}>
-        {children}
-      </button>
-    );
+    return <input type={type} value={children} className={styles.button} />;
   }
   // URLを指定してリンクボタンとして使用する場合
   else if (href) {

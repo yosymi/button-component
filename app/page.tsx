@@ -103,13 +103,31 @@ export default function Home() {
         </p>
         <div className={styles.flex}>
           <div className={styles.button_size}>
-            <BlackButton onClick={hello}>ボタン</BlackButton>
+            <BlackButton onClick={hello}>
+              <Image
+                className={styles.image}
+                src="/button_white.png"
+                alt=""
+                width={15}
+                height={15}
+              />
+              <p>ボタン</p>
+            </BlackButton>
           </div>
           <div className={styles.button_size}>
             <WhiteButtonOutline onClick={hello}>ボタン</WhiteButtonOutline>
           </div>
           <div className={styles.button_size}>
-            <WhiteButton onClick={hello}>ボタン</WhiteButton>
+            <WhiteButton onClick={hello}>
+              <p>ボタン</p>
+              <Image
+                className={styles.image}
+                src="/button_black.png"
+                alt=""
+                width={15}
+                height={15}
+              />
+            </WhiteButton>
           </div>
         </div>
         <br />
@@ -120,15 +138,31 @@ export default function Home() {
         <p>※３秒間待機後、新規タブでgoole.comを開く関数を指定しています。</p>
         <div className={styles.flex}>
           <div className={styles.button_size}>
-            <BlackButton onClick={openGoogle}>検索エンジン</BlackButton>
+            <BlackButton onClick={openGoogle}>
+              <Image
+                className={styles.image}
+                src="/chrome_white.png"
+                alt=""
+                width={30}
+                height={30}
+              />
+              <p>Google</p>
+            </BlackButton>
           </div>
           <div className={styles.button_size}>
-            <WhiteButtonOutline onClick={openGoogle}>
-              検索エンジン
-            </WhiteButtonOutline>
+            <WhiteButtonOutline onClick={openGoogle}>Google</WhiteButtonOutline>
           </div>
           <div className={styles.button_size}>
-            <WhiteButton onClick={openGoogle}>検索エンジン</WhiteButton>
+            <WhiteButton onClick={openGoogle}>
+              <p>Google</p>
+              <Image
+                className={styles.image}
+                src="/chrome_black.png"
+                alt=""
+                width={30}
+                height={30}
+              />
+            </WhiteButton>
           </div>
         </div>
         <br />
